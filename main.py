@@ -38,6 +38,11 @@ def main():
 
         for obj in drawable:
             obj.draw(screen)
+
+        for obj in asteroidsGroup:
+            if obj.check_collision(player):
+                print("Game over!")
+                # Handle collision logic here, e.g., reduce player health or end game
         
         pygame.display.flip()
 
