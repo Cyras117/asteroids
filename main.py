@@ -1,3 +1,4 @@
+import sys
 import pygame
 from shot import Shot
 from constants import *
@@ -47,12 +48,12 @@ def main():
         for obj in asteroidsGroup:
             if obj.check_collision(player):
                 print("Game over!")
-                # Handle collision logic here, e.g., reduce player health or end game
+                sys.exit()
         
         for shot in shots:
             for asteroid in asteroidsGroup:
                 if shot.check_collision(asteroid):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
                     break 
 
