@@ -49,6 +49,15 @@ def main():
                 print("Game over!")
                 # Handle collision logic here, e.g., reduce player health or end game
         
+        for shot in shots:
+            for asteroid in asteroidsGroup:
+                if shot.check_collision(asteroid):
+                    asteroid.kill()
+                    shot.kill()
+                    break 
+
+
+
         pygame.display.flip()
 
         dt = clock.tick(60)/1000  # Frame rate is set to 60 FPS
